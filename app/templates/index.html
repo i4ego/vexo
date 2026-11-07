@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vexo</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+    <script src="{{ url_for('static', path='/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+</head>
+<body>
+    <div class="side-panel">
+        <a class="title">vexo UI</a>
+        <a class="subtitle"></a>
+        <div class="buttons">
+            <button class="active" onclick="openPage(1)" id="p1"><img src="{{ url_for('static', path='/images/dashboard.svg') }}"> Дэшборд</button>
+            <button onclick="openPage(2)" button-data="2" id="p2"><img src="{{ url_for('static', path='/images/settings.svg') }}"> Твики</button>
+            <button onclick="openPage(3)" button-data="3" id="p3"><img src="{{ url_for('static', path='/images/about.svg') }}"> О vexo</button>
+            <button class="exit" onclick="closeUI()"><img src="{{ url_for('static', path='/exit.svg') }}"> Выход</button>
+        </div>
+    </div>
+    <div class="pages">
+        <div class="page">
+            <div class="dashboard hover-effects small">
+                <div class="card">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/success.svg') }}"> Статус</a>
+                    <a class="card-content" >{{ status }}</a>
+                </div>
+                <div class="card">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/game.svg') }}"> ?</a>
+                    <a class="card-content">{{ gf }}</a>
+                </div>
+                <div class="card">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/ip.svg') }}"> ?</a>
+                    <a class="card-content">{{ ipsetf }}</a>
+                </div>
+                <div class="card">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/config.svg') }}"> ?</a>
+                    <a class="card-content"><small>{{ config }}</small></a>
+                </div>
+                <div class="card">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/version.svg') }}"> Версия vexo</a>
+                    <a class="card-content">{{ version }}</a>
+                </div>
+            </div>
+            <div class="dashboard huge">
+                <div class="card huge">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/rules.svg') }}"> Настройки</a>
+                    <div class="card-size-box">
+                        <div class="sb-size-box">
+                            <pre id="fileViewer">?</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card normal">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/hw.svg') }}"> Система</a>
+                    <div class="card-size-box">
+                        <div class="card-sb-line"><a class="line-title">ОС</a><a class="line-value" id="os">...</a></div>
+                        <div class="card-sb-line"><a class="line-title">Процессор</a><a class="line-value" id="cpu">...</a></div>
+                        <div class="card-sb-line"><a class="line-title">Память</a><a class="line-value" id="ram">...</a></div>
+                        <div class="card-sb-line"><a class="line-title">Сеть</a><a class="line-value" id="net">...</a></div>
+                        <div class="card-sb-line"><a class="line-title">Версия vexo</a><a class="line-value">{{ vexoversion }}</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard small">
+                <div class="card huge">
+                    <a class="card-title"><img src="{{ url_for('static', path='/images/logs.svg') }}"> Логи</a>
+                    <code class="card-content" id="logs">...</code>
+                </div>
+            </div>
+        </div>
+        <div class="page">page2</div>
+        <div class="page">page3</div>
+    </div>
+    <img class="reload" src="{{ url_for('static', path='/images/reload.svg') }}" onclick="window.location.reload()">
+</body>
+</html>
