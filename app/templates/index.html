@@ -10,13 +10,13 @@
 </head>
 <body>
     <div class="side-panel">
-        <a class="title">vexo UI</a>
+        <a class="title">VEXO</a>
         <a class="subtitle"></a>
         <div class="buttons">
             <button class="active" onclick="openPage(1)" id="p1"><img src="{{ url_for('static', path='/images/dashboard.svg') }}"> Дэшборд</button>
             <button onclick="openPage(2)" button-data="2" id="p2"><img src="{{ url_for('static', path='/images/settings.svg') }}"> Твики</button>
             <button onclick="openPage(3)" button-data="3" id="p3"><img src="{{ url_for('static', path='/images/about.svg') }}"> О vexo</button>
-            <button class="exit" onclick="closeUI()"><img src="{{ url_for('static', path='/exit.svg') }}"> Выход</button>
+            <button class="exit" onclick="closeUI()"><img src="{{ url_for('static', path='/images/exit.svg') }}"> Выход</button>
         </div>
     </div>
     <div class="pages">
